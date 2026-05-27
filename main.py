@@ -339,3 +339,4 @@ async def deactivate_entry(entity_id:str,api_key:str=Depends(verify_api_key)):
 async def get_log(limit:int=100,api_key:str=Depends(verify_api_key)):
     resp=supabase.table("screening_log").select("*").order("screened_at",desc=True).limit(limit).execute()
     return {"count":len(resp.data),"data":resp.data}
+
